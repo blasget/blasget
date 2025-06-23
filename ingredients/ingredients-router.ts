@@ -21,7 +21,7 @@ interface Stock {
   expiryDate: Date;
 }
 
-interface Ingredient {
+export interface Ingredient {
   id: number;
   text: string;
   isBasic: boolean;
