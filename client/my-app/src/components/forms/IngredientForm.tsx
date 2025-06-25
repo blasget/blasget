@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { postIngredient } from "../../requests/fetch-ingredients";
+import { Ingredient } from "../../utils/interfaces";
 
 function IngredientForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Ingredient>({
+    id: 0,
+    stock: [],
     text: "",
     isBasic: true,
   });
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, type, value, checked } = e.target;
     setFormData({
       ...formData,
@@ -17,10 +20,12 @@ function IngredientForm() {
     });
   }
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     await postIngredient(formData);
     setFormData({
+      id: 0,
+      stock: [],
       text: "",
       isBasic: true,
     });
