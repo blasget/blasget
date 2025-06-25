@@ -1,3 +1,5 @@
+import { Ingredient } from "../utils/interfaces";
+
 async function makeApiRequest(method: string, endpoint: string, data?: any) {
     try {
         const requestOptions = {
@@ -20,4 +22,8 @@ async function makeApiRequest(method: string, endpoint: string, data?: any) {
 
 export async function getIngredients() {
     return makeApiRequest("GET", `ingredients`);
+}
+
+export async function postIngredient(data: Ingredient) {
+    return makeApiRequest("POST", `ingredients`, data);
 }

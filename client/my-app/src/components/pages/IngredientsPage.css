@@ -1,0 +1,11 @@
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.half-width {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+}
